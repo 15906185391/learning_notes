@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="test_robot">
+    <xacro:include filename="$(find canopen_tests)/urdf/robot_controller/diffbot_description.urdf.xacro"/>
+    <xacro:include filename="$(find canopen_tests)/urdf/robot_controller/diffbot.ros2_control.xacro"/>
+    <!-- Import Rviz colors -->
+    <xacro:include filename="$(find ros2_control_demo_description)/diffbot/urdf/diffbot.materials.xacro" />
+    
+    <xacro:diffbot prefix="">
+    </xacro:diffbot>
+
+    <xacro:diffbot_ros2_control
+        name="diff_robot"
+        prefix=""
+        bus_config="$(find canopen_tests)/config/robot_control/bus.yml"
+        master_config="$(find canopen_tests)/config/robot_control/master.dcf"
+        can_interface_name="vcan0"
+        master_bin="" />
+</robot>
